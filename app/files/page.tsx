@@ -43,7 +43,11 @@ export default function FilesPage() {
                 .from("files")
                 .upload(
                   `${crypto.randomUUID()}/${selectedFile.name}`,
-                  selectedFile
+                  selectedFile,
+                  {
+                    cacheControl: '3600',
+                    upsert: false
+                  }
                 );
                 console.log("data", data)
 
