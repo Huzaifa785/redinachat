@@ -51,6 +51,7 @@ export default function FilesPage() {
                   description:
                     'There was an error uploading the file. Please try again.',
                 });
+                console.log(error);
                 return;
               }
 
