@@ -39,12 +39,13 @@ export default function FilesPage() {
             console.log("Selected file", selectedFile);
 
             if (selectedFile) {
-              const { error } = await supabase.storage
+              const { data, error } = await supabase.storage
                 .from("files")
                 .upload(
                   `${crypto.randomUUID()}/${selectedFile.name}`,
                   selectedFile
                 );
+                console.log("data", data)
 
               if (error) {
                 toast({
