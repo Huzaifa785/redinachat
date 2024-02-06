@@ -17,6 +17,7 @@
     "autoprefixer": "10.4.15",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "langchain": "^0.1.13",
     "lucide-react": "^0.284.0",
     "next": "latest",
     "postcss": "8.4.29",
