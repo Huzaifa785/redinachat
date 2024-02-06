@@ -1,21 +1,23 @@
 import { createClient } from '@supabase/supabase-js';
 import { env, pipeline } from '@xenova/transformers';
 import { Database } from '../_lib/database.ts';
-import { OpenAIEmbeddings } from "langchain/embeddings";
+// import { OpenAIEmbeddings } from "@langchain/openai";
 
 // Configuration for Deno runtime
 env.useBrowserCache = false;
 env.allowLocalModels = false;
 
+const generateEmbedding = pipeline(
+  'feature-extraction',
+  'Supabase/gte-small'
+);
+
+// const embeddings = new OpenAIEmbeddings();
+
 // const generateEmbedding = pipeline(
 //   'feature-extraction',
 //   'Supabase/gte-small'
 // );
-
-const generateEmbedding = pipeline(
-  'feature-extraction',
-  OpenAIEmbeddings()
-);
 
 const supabaseUrl = Deno.env.get('SUPABASE_URL');
 const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY');
